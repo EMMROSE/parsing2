@@ -6,7 +6,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :size
       t.string :status
       t.monetize :price
-      t.references :fournisseur, null: false, foreign_key: true
+      t.references :selection, null: false, foreign_key: true
 
       t.timestamps
     end

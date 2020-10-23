@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  belongs_to :fournisseur
+  belongs_to :selection
 
   monetize :price_cents
 end

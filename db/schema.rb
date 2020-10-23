@@ -29,10 +29,18 @@ ActiveRecord::Schema.define(version: 2020_10_22_143729) do
     t.string "status"
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "EUR", null: false
+    t.bigint "selection_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["selection_id"], name: "index_products_on_selection_id"
+  end
+
+  create_table "selections", force: :cascade do |t|
+    t.text "date"
     t.bigint "fournisseur_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["fournisseur_id"], name: "index_products_on_fournisseur_id"
+    t.index ["fournisseur_id"], name: "index_selections_on_fournisseur_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,5 +55,6 @@ ActiveRecord::Schema.define(version: 2020_10_22_143729) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "products", "fournisseurs"
+  add_foreign_key "products", "selections"
+  add_foreign_key "selections", "fournisseurs"
 end

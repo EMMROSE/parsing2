@@ -1,3 +1,3 @@
 class Fournisseur < ApplicationRecord
-  has_many :products
+  has_many :selections
 end
