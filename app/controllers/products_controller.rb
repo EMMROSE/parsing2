@@ -25,14 +25,16 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @selection = Selection.find(params[:selection_id])
     @product = Product.new
+    @selection = Selection.find(params[:selection_id])
   end
 
   def create
     @product = Product.new(product_params)
+    @selection = Selection.find(params[:selection_id])
+    @product.selection = @selection
     if @product.save
-      redirect_to root_path
+      redirect_to selection_path(@selection)
       flash[:notice] = "Votre produit a bien été enregistré."
     else
       render :new
@@ -61,8 +63,8 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:brand, :name, :size, :category, :price_cents)
+    params.require(:product).permit(:name, :brand, :size, :category, :price_cents, :selection_id)
   end
-  # Ne pas oublier de remettre photos: []
+  # Ne pas oublier de remettre status par défault
 end
 

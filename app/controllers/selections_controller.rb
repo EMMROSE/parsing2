@@ -1,11 +1,13 @@
 class SelectionsController < ApplicationController
   require 'date'
+
   def new
     @selection = Selection.new
   end
 
   def show
     @selection = Selection.find(params[:id])
+    @fournisseur = @selection.fournisseur_id
   end
 
   def create
@@ -13,7 +15,7 @@ class SelectionsController < ApplicationController
     @selection.date = Date.today
     @selection.fournisseur = Fournisseur.find(params[:fournisseur_id])
     @selection.save
-    redirect_to product_path(@selection)
+    redirect_to selection_path(@selection)
   end
 
   def edit

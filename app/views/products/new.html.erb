@@ -1,19 +1,13 @@
 <div>
   <h1>Nouveau produit</h1>
-  <% new_product = Product.new %>
- <%= simple_form_for(new_product) do |f| %>
-    <%= f.input :fullname, label: 'Prénom & Nom', placeholder: "Nom complet du fournisseur" %>
-    <%= f.input :code, label: 'Code Référence de ce fournisseur', placeholder: "Exemple : 2020MB00152 [ANNEE+INITIALES+N°]" %>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-    </div>
+  <%= simple_form_for [ @selection, @product ] do |f| %>
+    <%= f.input :name, label: 'Nom du vêtement', placeholder: "Body, Robe & Pantalon ..." %>
+    <%= f.input :brand, label: 'Marque', placeholder: "Body, Robe & Pantalon ..." %>
+    <%= f.input :size, label: 'Taille', placeholder: "Body, Robe & Pantalon ..." %>
+ <!--    mettre en place une sélection ou des radio buttons -->
+    <%= f.input :category, label: 'Type de vêtements', placeholder: "Body, Robe & Pantalon ..." %>
+  <p>Prix Graine de mômes</p>
+  <%= f.number_field :price_cents, label: "Prix (en centimes)", placeholder: 0%>
    <div class="form-button">
     <%= f.submit "Créer le produit", class: 'btn btn-primary' %>
    </div>
@@ -21,3 +15,4 @@
  <% end %>
 
 </div>
+

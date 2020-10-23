@@ -17,6 +17,7 @@ class FournisseursController < ApplicationController
   def show
     @fournisseur = Fournisseur.find(params[:id])
     @selection = @fournisseur.selections
+    @products = @selection.products
   end
 
   def new

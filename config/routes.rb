@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   get 'stocks', to: 'pages#stocks'
   get 'comptabilite', to: 'pages#comptabilite'
   resources :fournisseurs
-  resources :selections
-  # resources :selections do
-  #   resources :products, only: [ :new, :create ]
-  # end
+  resources :selections do
+    resources :products
+  end
+
   resources :products
       get 'products/:id/research', to: "products#research", as: "product_research"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
