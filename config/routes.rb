@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'selections/new'
+  get 'selections/show'
+  get 'selections/edit'
   devise_for :users
   root to: 'pages#home'
   get 'furnishers', to: 'pages#fournisseurs'
