@@ -1,8 +1,16 @@
 <h1>Graine de mômes</h1>
 <h2>Gestion du stock</h2>
 
-<h3>Fournisseurs</h3>
-<h3>Stocks</h3>
-<h3>Comptabilité</h3>
 
 
+<div>
+  <%= link_to fournisseur_path do %>
+    <button>FOURNISSEURS</button>
+  <% end %>
+  <%= link_to stock_path do %>
+    <button>STOCKS</button>
+  <% end %>
+  <%= link_to comptabilite_path do %>
+    <button>COMPTABILITE</button>
+  <% end %>
+</div>
