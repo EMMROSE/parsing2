@@ -1,4 +1,5 @@
 class SelectionsController < ApplicationController
+  require 'date'
   def new
     @selection = Selection.new
   end
@@ -8,14 +9,11 @@ class SelectionsController < ApplicationController
   end
 
   def create
-    @selection = Selection.new(selection_params)
-    if @selection.save
-      redirect_to selection_path
-      flash[:notice] = "Votre produit a bien été enregistré."
-    else
-      render :new
-      flash[:alert] = "Veuillez compléter le formulaire s'il vous plaît."
-    end
+    @selection = Selection.new
+    @selection.date = Date.today
+    @selection.fournisseur = Fournisseur.find(params[:fournisseur_id])
+    @selection.save
+    redirect_to product_path(@selection)
   end
 
   def edit

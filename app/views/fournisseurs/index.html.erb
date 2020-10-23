@@ -1,0 +1,9 @@
+<div>
+  <% @fournisseurs.each do |element| %>
+  <ul>
+    <%= link_to fournisseur_path(element) do %>
+    <li><%= element.fullname %> - n°<%= element.code %></li>
+    <% end %>
+  </ul>
+  <% end %>
+</div>

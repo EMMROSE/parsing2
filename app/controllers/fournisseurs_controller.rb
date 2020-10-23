@@ -16,6 +16,7 @@ class FournisseursController < ApplicationController
 
   def show
     @fournisseur = Fournisseur.find(params[:id])
+    @selection = @fournisseur.selections
   end
 
   def new
@@ -25,7 +26,7 @@ class FournisseursController < ApplicationController
   def create
     @fournisseur = Fournisseur.new(fournisseur_params)
     if @fournisseur.save
-      redirect_to selection_path
+      redirect_to furnishers_path
       flash[:notice] = "Votre produit a bien été enregistré."
     else
       render :new

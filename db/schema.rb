@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 2020_10_22_143729) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "selections", force: :cascade do |t|
+    t.text "date"
+    t.bigint "fournisseur_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["fournisseur_id"], name: "index_selections_on_fournisseur_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "brand"
     t.string "name"
@@ -35,13 +43,6 @@ ActiveRecord::Schema.define(version: 2020_10_22_143729) do
     t.index ["selection_id"], name: "index_products_on_selection_id"
   end
 
-  create_table "selections", force: :cascade do |t|
-    t.text "date"
-    t.bigint "fournisseur_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["fournisseur_id"], name: "index_selections_on_fournisseur_id"
-  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

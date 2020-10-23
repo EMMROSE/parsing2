@@ -1,0 +1,9 @@
+<div>
+  <h2>Fiche de <%= @fournisseur.fullname %></h2>
+  <div>
+    <p><%= @selection.count %> sélection(s)</p>
+  </div>
+  <div>
+    <%= link_to "Créer une nouvelle sélection de vêtements", selections_path(fournisseur_id: @fournisseur.id), method: :post, class: "btn btn-primary"%>
+  </div>
+</div>

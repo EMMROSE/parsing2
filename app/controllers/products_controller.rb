@@ -25,6 +25,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @selection = Selection.find(params[:selection_id])
     @product = Product.new
   end
 
@@ -60,7 +61,8 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :size_id, :genre_id, :category_id, :sku, :cover, :photo, :price_cents, :old_price_cents, :stock)
+    params.require(:product).permit(:brand, :name, :size, :category, :price_cents)
   end
   # Ne pas oublier de remettre photos: []
 end
+
