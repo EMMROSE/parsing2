@@ -1,2 +1,13 @@
-<h1>Selections#edit</h1>
-<p>Find me in app/views/selections/edit.html.erb</p>
+<h1>Selection n° <%= @selection.id %> de <%= @selection.fournisseur.firstname %></h1>
+<%= link_to 'Retour aux sélections', :back, class: "btn btn-primary"%>
+<%= link_to 'Ajouter un produit', new_selection_product_path(@selection), class: "btn btn-primary"%>
+
+<div>
+  <% @selection.products.each do |product| %>
+    <p><%= product.id %></p>
+    <p><%= product.name %> - <%= product.brand %> - <%= product.size %> - <%= product.price %>€ - <%= product.status %></p>
+    <%= link_to product_path(product), method: :delete, data: { confirm: "Vous êtes sure?" } do %>
+      <i class="fas fa-minus"></i>
+    <% end %>
+  <% end %>
+</div>

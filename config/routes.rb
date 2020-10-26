@@ -9,10 +9,12 @@ Rails.application.routes.draw do
   get 'comptabilite', to: 'pages#comptabilite'
   resources :fournisseurs
   resources :selections do
-    resources :products
+      resources :products, only: [ :index, :show, :new, :create ]
   end
+  resources :products, only: [ :edit, :update, :destroy]
+    post 'products/:id/edit', to: "products#sold_status", as: "sold_status"
+    post 'products/:id/edit', to: "products#return_status", as: "return_status"
 
-  resources :products
-      get 'products/:id/research', to: "products#research", as: "product_research"
+  get 'products/:id/research', to: "products#research", as: "product_research"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

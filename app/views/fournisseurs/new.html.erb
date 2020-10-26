@@ -2,9 +2,10 @@
   <h1>Nouveau fournisseur</h1>
   <% new_fournisseur = Fournisseur.new %>
  <%= simple_form_for(new_fournisseur) do |f| %>
-    <%= f.input :fullname, label: 'Prénom & Nom', placeholder: "Nom complet du fournisseur" %>
-    <%= f.input :code, label: 'Code Référence de ce fournisseur', placeholder: "Exemple : 2020MB00152 [ANNEE+INITIALES+N°]" %>
-   <div class="form-button">
+    <%= f.input :firstname, label: 'Prénom', placeholder: "Freddy" %>
+    <%= f.input :lastname, label: 'Nom de famille', placeholder: "Mercury" %>
+    <%= f.input :email, label: 'adresse e-mail', placeholder: "bonjour@grainedemomes.com" %>
+    <%= f.input :rib, label: 'RIB', placeholder: "FR76XXXXXXXX" %>
     <%= f.submit "Créer le fournisseur", class: 'btn btn-primary' %>
    </div>
    <br>

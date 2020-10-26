@@ -1,11 +1,12 @@
-<h1>Détail de la sélection n°<%= @selection.id %> de <%= @selection.fournisseur.fullname %></h1>
+<h1>Détail de la sélection n°<%= @selection.id %> de <%= @selection.fournisseur.firstname %></h1>
 
 <div>
+  <%= link_to 'Editer cette sélection', edit_selection_path(@selection), class: "btn btn-primary"%>
   <%= link_to 'Ajouter un produit', new_selection_product_path(@selection), class: "btn btn-primary"%>
   <%= link_to 'Retour au fournisseur', fournisseur_path(@fournisseur), class: "btn btn-secondary"%>
   <br>
   <ul>
-    <%= @selection.products.each do |product| %>
+    <% @selection.products.each do |product| %>
       <li><%= product.name %> - <%= product.brand %> - <%= product.size %> - <%= product.price %>€ - <%= product.status %></li>
     <% end %>
   </ul>

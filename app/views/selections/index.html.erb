@@ -1,0 +1,9 @@
+<h1>Les sélections de <%= @fournisseur.firstname %> <%= @fournisseur.lastname %></h1>
+<%= link_to 'Retour au fournisseur', fournisseur_path(@fournisseur), class: "btn btn-success"%>
+<br>
+<div>
+  <% @fournisseur.selections.each do |selection| %>
+    <h3><%= selection.date %> - <%= selection.products.count %> produits</h3>
+    <%= link_to 'Editer cette sélection', edit_selection_path(selection), class: "btn btn-primary"%> <%= link_to 'Supprimer cette sélection', selection_path(selection), method: :delete, class: "btn btn-danger"%>
+  <% end %>
+</div>

@@ -1,8 +1,9 @@
 <div>
+  <%= link_to 'retour au Menu', root_path, class: "btn btn-success"%>
   <% @fournisseurs.each do |element| %>
   <ul>
     <%= link_to fournisseur_path(element) do %>
-      <li><%= element.fullname %> - n°<%= element.code %></li>
+      <li><%= element.firstname %> <%= element.lastname %>- n°<%= element.code %></li>
     <% end %>
   </ul>
   <% end %>

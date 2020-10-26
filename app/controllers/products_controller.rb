@@ -25,8 +25,8 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
     @selection = Selection.find(params[:selection_id])
+    @product = Product.new
   end
 
   def create
@@ -57,7 +57,21 @@ class ProductsController < ApplicationController
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to products_path
+    redirect_to selection_path(@product.selection)
+  end
+
+  def sold_status
+    product = Product.find(params[:id])
+    product.status = "vendu"
+    product.save
+    redirect_to stocks_path
+  end
+
+  def return_status
+    product = Product.find(params[:id])
+    product.status = "retourné"
+    product.save
+    redirect_to stocks_path
   end
 
   private

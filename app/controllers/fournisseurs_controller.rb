@@ -1,5 +1,7 @@
 class FournisseursController < ApplicationController
   # skip_before_action :authenticate_user!, only: :index
+  require 'date'
+
   def research
     if params[:query].present?
       @fournisseurs = Fournisseur.search_by_name_code(params[:query])
@@ -16,8 +18,12 @@ class FournisseursController < ApplicationController
 
   def show
     @fournisseur = Fournisseur.find(params[:id])
-    @selection = @fournisseur.selections
-    @products = @selection.products
+    @selections = @fournisseur.selections
+    @total = 0
+    @selections.each do |selection|
+      @total += selection.products.count
+    end
+    return @total
   end
 
   def new
@@ -26,6 +32,8 @@ class FournisseursController < ApplicationController
 
   def create
     @fournisseur = Fournisseur.new(fournisseur_params)
+    numberforcode = (10000 - Fournisseur.count).to_s
+    @fournisseur.code = Date.today.year.to_s + @fournisseur.firstname.chr + @fournisseur.lastname.chr + numberforcode
     if @fournisseur.save
       redirect_to furnishers_path
       flash[:notice] = "Votre produit a bien été enregistré."
@@ -56,7 +64,7 @@ class FournisseursController < ApplicationController
   private
 
   def fournisseur_params
-    params.require(:fournisseur).permit(:fullname, :code)
+    params.require(:fournisseur).permit(:firstname, :lastname, :email, :rib, :code)
   end
   # Ne pas oublier de remettre photos: []
 end
