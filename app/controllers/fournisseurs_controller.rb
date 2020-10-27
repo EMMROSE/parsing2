@@ -26,7 +26,7 @@ class FournisseursController < ApplicationController
       @total += selection.products.count
       selection.products.each do |product|
         @sumup += product.price
-        @sold += product.price if product.status == "vendu"
+        @sold += (product.price * 0.50) if product.status == "vendu"
       end
     end
     return @total
