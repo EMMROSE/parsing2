@@ -3,7 +3,7 @@
   <% @fournisseurs.each do |element| %>
   <ul>
     <%= link_to fournisseur_path(element) do %>
-      <li><%= element.firstname %> <%= element.lastname %>- n°<%= element.code %></li>
+      <li><%= element.firstname %> <%= element.lastname %>- n°<%= element.code %> <%= link_to 'X', fournisseur_path(element), method: :delete, class: "btn btn-danger"%></li>
     <% end %>
   </ul>
   <% end %>

@@ -1,5 +1,5 @@
 class Fournisseur < ApplicationRecord
-  has_many :selections
+  has_many :selections, dependent: :destroy
   has_many :products, through: :selections
 
   validates :firstname, presence: true

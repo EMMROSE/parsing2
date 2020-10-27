@@ -4,7 +4,7 @@
   <p>RIB : <%= @fournisseur.rib %></p>
   <p>Code : <%= @fournisseur.code %></p>
   <div>
-    <p><%= @selections.count %> sélection(s) - <%= @total %> produit(s)</p>
+    <p><%= @selections.count %> sélection(s) - <%= @total %> produit(s) pour un montant total de <%= @sumup %> € Hors Taxes. Crédit = <%= @sold %> €</p>
     <%= link_to 'Ses sélections', selections_path(fournisseur_id: @fournisseur.id), class: "btn btn-primary"%>
   </div>
   <div>
