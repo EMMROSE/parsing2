@@ -1,7 +1,7 @@
 <div>
   <h1>Créer un paiement</h1>
   <%= simple_form_for [ @fournisseur, @paiement ] do |f| %>
-  <%= f.number_field :amount, label: "Quelle somme en € ?", placeholder: 0%>
+  <%= f.number_field :amount_cents, label: "Quelle somme en cents ?", placeholder: 0%>
    <div class="form-button">
     <%= f.submit "Créer le paiement", class: 'btn btn-primary' %>
    </div>
