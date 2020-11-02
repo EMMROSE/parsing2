@@ -1,15 +1,6 @@
-<td>
-  <%= image_tag wicked_pdf_asset_base64('logo.png') %>
-</td>
 <h1>Détail de la sélection n°<%= @selection.id %> de <%= @selection.fournisseur.firstname %></h1>
-
+<td><%= link_to "Générer un PDF", selection_path(@selection, :format => :pdf) , :format => :pdf, class: "btn btn-success" %></td>
 <div>
-  <%= link_to 'Editer cette sélection', edit_selection_path(@selection), class: "btn btn-primary"%>
-  <%= link_to 'Ajouter un produit', new_selection_product_path(@selection), class: "btn btn-primary"%>
-  <%= link_to 'Retour au fournisseur', fournisseur_path(@fournisseur), class: "btn btn-secondary"%>
-  <td><%= link_to "Download CV", selection_path(@selection, :format => :pdf) , :format => :pdf, class: "btn btn-success" %></td>
-  <br>
-  <ul>
     <% @selection.products.each do |product| %>
       <table>
         <li><%= product.name %> - <%= product.brand %> - <%= product.size %> - <%= product.price %>€ - <%= product.status %></li>

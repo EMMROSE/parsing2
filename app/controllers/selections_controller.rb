@@ -12,10 +12,12 @@ class SelectionsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "Récapitulatif de la séléection No. #{@selection.id} du #{@selection.date}.",
+        render pdf: "Récapitulatif de la sélection No. #{@selection.id} du #{@selection.date}.",
           layout: 'pdf.html',
           page_size: 'A4',
           template: "selections/show.html.erb",
+          background: false,
+          no_background: true,
           lowquality: true,
           zoom: 1,
           dpi: 300,

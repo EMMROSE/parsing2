@@ -6,6 +6,6 @@
     <table style="border: 1px solid black;">
       <h3><%= selection.date %> - <%= selection.products.count %> produits</h3>
       <%= link_to 'Voir sa sélection', selection_path(selection), class: "btn btn-success"%> <%= link_to 'Editer cette sélection', edit_selection_path(selection), class: "btn btn-primary"%> <%= link_to 'Supprimer cette sélection', selection_path(selection), method: :delete, class: "btn btn-danger"%>
-    </table>
+   </table>
   <% end %>
 </div>

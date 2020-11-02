@@ -6,7 +6,16 @@
 // External libraries
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
-@import "font-awesome";
+// @import "font-awesome";
+@font-face {
+    font-family: 'FontAwesome';
+    src: url(data:font/truetype;charset=utf-8;base64,AAAAASuperLongStringAAA==) format('truetype');
+    src: url(data:image/svg+xml;charset=utf-8;base64,SuperLongStringPD94bWwgdmVyc2lvbj0=) format('svg');
+    src: url(data:image/woff+xml;charset=utf-8;base64,SuperLongStringd09GRgABAAAAAK2QAA4AAAABOwwA=) format('woff');
+
+    font-weight: normal;
+    font-style: normal;
+}
 
 // Your CSS partials
 @import "components/index";
