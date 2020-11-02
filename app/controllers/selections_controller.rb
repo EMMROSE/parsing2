@@ -9,6 +9,19 @@ class SelectionsController < ApplicationController
   def show
     @selection = Selection.find(params[:id])
     @fournisseur = @selection.fournisseur_id
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Récapitulatif de la séléection No. #{@selection.id} du #{@selection.date}.",
+          layout: 'pdf.html',
+          page_size: 'A4',
+          template: "selections/show.html.erb",
+          lowquality: true,
+          zoom: 1,
+          dpi: 300,
+          encoding:"UTF-8"
+      end
+    end
   end
 
   def new
