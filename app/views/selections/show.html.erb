@@ -7,9 +7,7 @@
   <%= link_to 'Editer cette sélection', edit_selection_path(@selection), class: "btn btn-primary"%>
   <%= link_to 'Ajouter un produit', new_selection_product_path(@selection), class: "btn btn-primary"%>
   <%= link_to 'Retour au fournisseur', fournisseur_path(@fournisseur), class: "btn btn-secondary"%>
-  <td><%= link_to 'Preview PDF', selection_path(@selection) %></td>
-  <td><%= link_to "Download CV", selection_path(@selection, :format => :pdf) , :format => :pdf %></td>
-  <td><%= link_to "Preview CV", selection_path(@selection) %></td>
+  <td><%= link_to "Download CV", selection_path(@selection, :format => :pdf) , :format => :pdf, class: "btn btn-success" %></td>
   <br>
   <ul>
     <% @selection.products.each do |product| %>
