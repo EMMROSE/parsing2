@@ -1,6 +1,7 @@
 <h1>Détail de la sélection n°<%= @selection.id %> de <%= @selection.fournisseur.firstname %></h1>
 <td><%= link_to "Générer un PDF", selection_path(@selection, :format => :pdf) , :format => :pdf, class: "btn btn-success" %></td>
-<div>
+<%= link_to 'Ajouter un produit', new_selection_product_path(@selection), class: "btn btn-primary"%>
+<div class="mt-5">
     <% @selection.products.each do |product| %>
       <table>
         <li><%= product.name %> - <%= product.brand %> - <%= product.size %> - <%= product.price %>€ - <%= product.status %></li>
