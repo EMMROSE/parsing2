@@ -1,8 +1,13 @@
-<div>
-  <%= link_to fournisseurs_path do %>
-    <button>MES FOURNISSEURS</button>
-  <% end %>
-  <%= link_to new_fournisseur_path do %>
-    <button>CREER UN FOURNISSEUR</button>
-  <% end %>
+<div class="bg-fournisseur">
+  <div class="buttons-fournisseurs">
+    <%= link_to fournisseurs_path do %>
+      MES FOURNISSEURS
+    <% end %>
+    <%= link_to new_fournisseur_path do %>
+      CREER UN FOURNISSEUR
+    <% end %>
+    <%= link_to root_path do %>
+      RETOUR AU MENU
+    <% end %>
+  </div>
 </div>

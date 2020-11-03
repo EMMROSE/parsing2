@@ -1,9 +1,11 @@
-<div>
-  <%= link_to 'retour au Menu', root_path, class: "btn btn-success"%>
-  <ul>
+<div class="m-3" style="height: 100vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('../assets/094.jpg'); background-size: cover;">
+  <%= link_to 'retour au Menu', root_path, class: "button"%>
+  <ul class="m-5">
     <% Product.order("id DESC").each do |product| %>
-      <li><%= product.id %> - <%= product.name %> - <%= product.status %> <%= link_to 'Vendu', sold_status_path(product), method: :post, class: "btn btn-success"%>  <%= link_to 'A vendre', tosell_status_path(product), method: :post, class: "btn btn-success"%> <%= link_to 'Retourné', return_status_path(product), method: :post, class: "btn btn-success"%> <%= link_to 'X', product_path(product), method: :delete, class: "btn btn-danger"%></li>
-      <br>
+      <div class="index">
+        <div>n°<%= product.id %> - <%= product.name %> - <%= product.status %></div>
+        <div><%= link_to 'Vendu', sold_status_path(product), method: :post, class: "button-sm"%>  <%= link_to 'A vendre', tosell_status_path(product), method: :post, class: "button-ts"%> <%= link_to 'Retourné', return_status_path(product), method: :post, class: "button-return"%> <%= link_to 'X', product_path(product), method: :delete, class: "button-red"%></div>
+      </div>
     <% end %>
   </ul>
 </div>

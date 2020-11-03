@@ -41,7 +41,7 @@ class FournisseursController < ApplicationController
     @fournisseur.code = Date.today.year.to_s + @fournisseur.firstname.chr + @fournisseur.lastname.chr + numberforcode
     if @fournisseur.save
       redirect_to furnishers_path
-      flash[:notice] = "Votre produit a bien été enregistré."
+      flash[:notice] = "Votre fournisseur a bien été enregistré."
     else
       render :new
       flash[:alert] = "Veuillez compléter le formulaire s'il vous plaît."

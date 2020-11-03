@@ -1,6 +1,6 @@
-<div style="margin: 32px;">
+<div class="bg-home">
   <h1>Graine de mômes</h1>
-  <h2>APPLI de Gestion du stock</h2>
+  <h2>Application de Gestion du stock & comptabilité</h2>
   <div class="buttons-home">
     <%= link_to furnishers_path do %>
       FOURNISSEURS
@@ -12,29 +12,29 @@
       COMPTABILITE
     <% end %>
   </div>
-</div>
-<div class="dashboard">
-  <h3>Dashboard</h3>
-  <table>
-    <tr class="bg-info text-white">
-      <td>Fournisseurs</td>
-      <td>Sélections</td>
-      <td>Produits</td>
-      <td>Valeur estimée du stock</td>
-      <td>Montant estimé des ventes</td>
-    </tr>
-    <tr>
-      <td><%= @fournisseurs.count %> fournisseurs</td>
-      <td><%= @selections.count %> sélections</td>
-      <td><%= @products.count %> produits</td>
-      <% inventory = 0 %>
-      <% sales = 0 %>
-      <% @products.each do |product| %>
-        <% inventory += product.price %>
-        <% sales += product.price if product.status == "vendu" %>
-      <% end %>
-      <td><%= inventory %>€</td>
-      <td><%= sales %>€</td>
-    </tr>
-  </table>
+  <div class="dashboard">
+    <h3>Dashboard</h3>
+    <table>
+      <tr class="bg-info text-white">
+        <td>Fournisseurs</td>
+        <td>Sélections</td>
+        <td>Produits</td>
+        <td>Valeur estimée du stock</td>
+        <td>Montant estimé des ventes</td>
+      </tr>
+      <tr>
+        <td><%= @fournisseurs.count %> fournisseurs</td>
+        <td><%= @selections.count %> sélections</td>
+        <td><%= @products.count %> produits</td>
+        <% inventory = 0 %>
+        <% sales = 0 %>
+        <% @products.each do |product| %>
+          <% inventory += product.price %>
+          <% sales += product.price if product.status == "vendu" %>
+        <% end %>
+        <td><%= inventory %>€</td>
+        <td><%= sales %>€</td>
+      </tr>
+    </table>
+  </div>
 </div>
