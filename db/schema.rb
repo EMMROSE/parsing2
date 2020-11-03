@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_101410) do
     t.string "brand"
     t.string "name"
     t.string "size"
+    t.string "genre"
     t.string "category"
     t.string "status", default: "à vendre"
     t.integer "price_cents", default: 0, null: false

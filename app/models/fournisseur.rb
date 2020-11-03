@@ -31,4 +31,8 @@ class Fournisseur < ApplicationRecord
     return credit
   end
 
+  def sales
+    self.count
+  end
+
 end

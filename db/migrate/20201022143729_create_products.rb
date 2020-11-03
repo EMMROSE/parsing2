@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :brand
       t.string :name
       t.string :size
+      t.string :genre
       t.string :category
       t.string :status, default: "à vendre"
       t.monetize :price
