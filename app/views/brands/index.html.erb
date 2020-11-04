@@ -1,0 +1,19 @@
+<div class="container">
+  <h2> Mes marques</h2>
+  <br>
+  <%= link_to 'retour au Menu', root_path, class: "btn btn-success"%>
+  <br>
+  <%= link_to 'Ajouter une marque', new_brand_path, class: "button-ts"%>
+  <br>
+  <br>
+  <% if Brand.all.count == 0 %>
+    <p>Aucune marque n'est créée actuellement.</p>
+  <% else %>
+    <% @brands.each do |brand| %>
+      <div style="width: 50%; margin-bottom: 16px; display: flex; justify-content: space-between;">
+        <div><%= brand.name %></div>
+        <div><%= link_to 'X', brand_path(brand), method: :delete, class: "button-red"%></div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

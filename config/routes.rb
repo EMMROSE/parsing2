@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'brands/index'
+  get 'brands/new'
+  get 'brands/create'
+  get 'brands/edit'
+  get 'brands/update'
+  get 'brands/destroy'
   get 'paiements/index'
   get 'paiements/new'
   get 'paiements/create'
@@ -26,5 +32,7 @@ Rails.application.routes.draw do
   resources :paiements, only: [ :edit, :update, :destroy]
     post 'paiements/:id/settle', to: "paiements#settle_status", as: "settle_status"
   get 'products/:id/research', to: "products#research", as: "product_research"
+
+  resources :brands
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

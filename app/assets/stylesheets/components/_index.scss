@@ -3,6 +3,7 @@
 @import "avatar";
 @import "button";
 @import "dashboard";
+@import "fiche";
 @import "navbar";
 
 .bg-home {
@@ -12,7 +13,7 @@
   object-fit: cover;
   h1, h2 {color: white; margin-left: 32px;}
   height: 100vh;
-  margin: 32px;
+  margin-top: 1vh;
 }
 
 .bg-fournisseur {
