@@ -5,15 +5,32 @@
   <br>
   <%= link_to 'Ajouter une marque', new_brand_path, class: "button-ts"%>
   <br>
+  <%= link_to 'Ajouter un vêtement', new_clothe_path, class: "button-ts"%>
   <br>
-  <% if Brand.all.count == 0 %>
-    <p>Aucune marque n'est créée actuellement.</p>
-  <% else %>
-    <% @brands.each do |brand| %>
-      <div style="width: 50%; margin-bottom: 16px; display: flex; justify-content: space-between;">
-        <div><%= brand.name %></div>
-        <div><%= link_to 'X', brand_path(brand), method: :delete, class: "button-red"%></div>
-      </div>
-    <% end %>
-  <% end %>
+  <div style="width: 100%; display:flex; justify-content: space-around;">
+    <div style="border: 1px solid black; width: 50%; padding: 32px; margin: 32px; border-radius: 6px;">
+      <% if Brand.all.count == 0 %>
+        <p>Aucune marque n'est créée actuellement.</p>
+      <% else %>
+        <% @brands.each do |brand| %>
+          <div style="margin-bottom: 16px; display: flex; justify-content: space-between;">
+            <div><%= brand.name %></div>
+            <div><%= link_to 'X', brand_path(brand), method: :delete, class: "button-red"%></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div style="border: 1px solid black; width: 50%; padding: 32px; margin: 32px; border-radius: 6px;">
+      <% if Clothe.all.count == 0 %>
+        <p>Aucun vêtement n'est créée actuellement.</p>
+      <% else %>
+        <% @clothes.each do |clothe| %>
+          <div style="width: 50%; margin-bottom: 16px; display: flex; justify-content: space-between;">
+            <div><%= clothe.name %></div>
+            <div><%= link_to 'X', clothe_path(clothe), method: :delete, class: "button-red"%></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

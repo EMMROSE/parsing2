@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    @brands = Brand.all
     @product = Product.new(product_params)
     @selection = Selection.find(params[:selection_id])
     @product.selection = @selection

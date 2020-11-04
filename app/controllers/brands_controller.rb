@@ -1,6 +1,7 @@
 class BrandsController < ApplicationController
   def index
     @brands = Brand.all
+    @clothes = Clothe.all
   end
 
   def new

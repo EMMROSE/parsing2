@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'clothes/index'
+  get 'clothes/new'
+  get 'clothes/create'
+  get 'clothes/edit'
+  get 'clothes/update'
+  get 'clothes/destroy'
   get 'brands/index'
   get 'brands/new'
   get 'brands/create'
@@ -34,5 +40,6 @@ Rails.application.routes.draw do
   get 'products/:id/research', to: "products#research", as: "product_research"
 
   resources :brands
+  resources :clothes
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
