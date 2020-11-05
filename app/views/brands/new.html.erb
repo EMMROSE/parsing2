@@ -1,21 +1,24 @@
-<h1>Brands#new</h1>
-<%= link_to 'retour au Menu', root_path, class: "btn btn-success"%>
-<br>
-<p>Pour créer une marque, c'est ici que ça se passe >></p>
-<br>
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-md-8">
-      <h1>Nouvelle marque :</h1>
-      <%= simple_form_for [ @brand ] do |f| %>
-      <%= f.input :name, label: 'Nom de la marque', placeholder: "Jacadi, Dior, Merlinpinpin" %>
-       <div class="form-button mt-2">
-        <%= f.submit "Créer le produit", class: 'btn btn-primary' %>
-       </div>
-       <br>
-     <% end %>
+<div class="fiche_fournisseur">
+  <h1>Brands#new</h1>
+  <%= link_to 'retour au Menu', root_path, class: "btn btn-success"%>
+  <br>
+  <p>Pour créer une marque, c'est ici que ça se passe >></p>
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-8">
+        <h1>Nouvelle marque :</h1>
+        <%= simple_form_for [ @brand ] do |f| %>
+        <%= f.input :name, label: 'Nom de la marque', placeholder: "Jacadi, Dior, Merlinpinpin" %>
+         <div class="form-button mt-2">
+          <%= f.submit "Créer le produit", class: 'btn btn-primary' %>
+         </div>
+         <br>
+       <% end %>
+      </div>
     </div>
   </div>
 </div>
+
 
 ['10IS', 'Absorba', 'Alice', 'Arsène et les pipelettes', 'Benetton', 'Billieblush', 'Blune', 'Bonpoint', 'Bonton', 'Boutchou', 'Burberry', 'C&A', 'Carrément Beau', 'Catimini', 'CdeC', 'Chipie', 'Cyrillus', 'Dior', 'DPAM', 'Gap', 'Gocco', 'H&M', 'IKKS', 'Isabel Marant', 'Jacadi', 'Kiabi', 'Kickers', 'K-way', 'La Redoute', 'Le Bome', 'Levis', 'Lola Palacios', 'Louis Louise', 'Mango', 'Monoprix', 'Natalys', 'Noukies', 'Obaidi', 'Okaïdi', 'Orchestra', 'Oscar & Valentine', 'Oshkosh', 'Paul Smith', 'Petit Bateau', 'Ralph Lauren', 'Ronron', 'Sergent Major', 'Stella McCartney', 'TAO', 'Tape à l œil', 'Tartine & Chocolat', 'The Little White Company', 'Timberland', 'Vert Baudet', 'Zadig & Voltaire', 'Zara']

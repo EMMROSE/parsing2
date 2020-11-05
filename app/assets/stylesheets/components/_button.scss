@@ -59,12 +59,16 @@
   padding: 16px;
   box-shadow: 0 0 15px rgba(54,159,110,0.2);
   text-align: center;
+  display:flex;
+  align-items: center;
   a {text-decoration: none;}
   color: white;
   font-weight: bolder;
   transition: all 0.3s ease;
   &:hover {
     box-shadow: 0 0 15px rgba(54,159,110,0.8);
+    text-decoration: none;
+    color: white;
   }
 }
 // Bouton vendu
@@ -83,6 +87,8 @@
   transition: all 0.3s ease;
   &:hover {
     box-shadow: 0 0 15px rgba(54,159,110,0.8);
+    text-decoration: none;
+    color: white;
   }
 }
 // Bouton à vendre
@@ -93,14 +99,18 @@
   border-radius: 8px;
   height: 24px;
   padding: 8px;
-  box-shadow: 0 0 15px rgba(54,159,110,0.2);
+  box-shadow: 0 0 15px rgba(255,81,47,0.2);
   text-align: center;
+  display:flex;
+  align-items: center;
   a {text-decoration: none;}
   color: white;
   font-weight: bolder;
   transition: all 0.3s ease;
   &:hover {
-    box-shadow: 0 0 15px rgba(54,159,110,0.8);
+    box-shadow: 0 0 15px rgba(255,81,47,0.8);
+    text-decoration: none;
+    color: white;
   }
 }
 
@@ -113,13 +123,16 @@
   height: 24px;
   padding: 8px;
   box-shadow: 0 0 15px rgba(54,159,110,0.2);
-  text-align: center;
+  display:flex;
+  align-items: center;
   a {text-decoration: none;}
   color: white;
   font-weight: bolder;
   transition: all 0.3s ease;
   &:hover {
     box-shadow: 0 0 15px rgba(54,159,110,0.8);
+    text-decoration: none;
+    color: white;
   }
 }
 
@@ -132,11 +145,16 @@
   padding: 8px;
   box-shadow: 0 0 15px rgba(175,31,29,0.2);
   text-align: center;
+  display:flex;
+  align-items: center;
   a {text-decoration: none;}
   color: white;
   font-weight: bolder;
   transition: all 0.3s ease;
   &:hover {
     box-shadow: 0 0 15px rgba(175,31,29,0.8);
+    border: 2px solid white;
+    text-decoration: none;
+    color: white;
   }
 }
