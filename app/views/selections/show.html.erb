@@ -1,8 +1,11 @@
 <h1>Détail de la sélection n°<%= @selection.id %> de <%= @selection.fournisseur.firstname %></h1>
-<%= link_to "Générer un PDF", selection_path(@selection, :format => :pdf) , :format => :pdf, class: "btn btn-success" %>
-<%= link_to "Enregistrer en CSV", selection_csv_path, class: "button-red", style:"width: 240px;" %>
-<%= link_to 'Ajouter un produit', new_selection_product_path(@selection), class: "btn btn-primary"%>
-<%= link_to 'retour au Menu', root_path, class: "btn btn-success"%>
+<div class="buttons-fournisseurs">
+  <%= link_to "Générer un PDF", selection_path(@selection, :format => :pdf) , :format => :pdf, class: "btn btn-success" %>
+  <%= link_to "Enregistrer en CSV", selection_csv_path, class: "button-red", style:"width: 240px;" %>
+  <%= link_to 'Ajouter un produit', new_selection_product_path(@selection), class: "btn btn-primary"%>
+  <%= link_to 'retour au Menu', root_path, class: "btn btn-success"%>
+</div>
+
 <div class="products_table">
   <table>
     <tr id="product-bg">
@@ -13,6 +16,8 @@
       <td>Genre</td>
       <td>Prix HT</td>
       <td>Statut</td>
+      <td>Modifier le prix</td>
+      <td>Editer le produit</td>
     </tr>
     <% @selection.products.each do |product| %>
       <tr>
@@ -23,6 +28,8 @@
         <td><%= product.genre %></td>
         <td><%= product.price %>€</td>
         <td><%= product.status %></td>
+        <td><%= link_to '€', edit_price_path(product), method: :post %></td>
+        <td><%= link_to 'edit',edit_product_path(product)%></td>
       </tr>
     <% end %>
   </table>

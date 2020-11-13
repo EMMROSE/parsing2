@@ -1,14 +1,13 @@
-<div class="m-3" style="height: 100vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('../assets/094.jpg'); background-size: cover;">
+<div class="m-3" style="height: 100vh; padding: 16px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('../assets/094.jpg'); background-size: cover; display: flex; flex-direction: column; align-items: center;">
   <%= link_to 'retour au Menu', root_path, class: "button"%>
-  <table>
+  <table style="width: 70%; color: white; margin-top: 24px;">
     <% Product.order("id DESC").each do |product| %>
-      <div class="index-stock">
+      <div>
       <tr>
         <td>n°<%= product.id %> - <%= product.name %> - <%= product.status %></td>
-        <td><%= link_to 'Vendu', sold_status_path(product), method: :post, class: "button-sm"%>  <%= link_to 'A vendre', tosell_status_path(product), method: :post, class: "button-ts"%> <%= link_to 'Retourné', return_status_path(product), method: :post, class: "button-return"%> <%= link_to 'X', product_path(product), method: :delete, class: "button-red"%></td>
+        <td style="display:flex; justify-content: space-around;"><%= link_to 'Vendu', sold_status_path(product), method: :post, class: "button-sm"%>  <%= link_to 'A vendre', tosell_status_path(product), method: :post, class: "button-ts"%> <%= link_to 'Retourné', return_status_path(product), method: :post, class: "button-return"%> <%= link_to 'X', product_path(product), method: :delete, class: "button-red"%></td>
       </tr>
       </div>
     <% end %>
   </table>
 </div>
-

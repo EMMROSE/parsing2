@@ -61,7 +61,7 @@ class ProductsController < ApplicationController
     elsif array7.include?(@product.name)
       @product.category = "Hauts Manches Longues"
     elsif array8.include?(@product.name)
-      @product.category = "Panatalon/Leggin/Bloomer"
+      @product.category = "Pantalon/Leggin/Bloomer"
     elsif array9.include?(@product.name)
       @product.category = "Manteau/Blouson"
     else
@@ -105,7 +105,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      redirect_to product_path(@product)
+      redirect_to selection_path(@product.selection)
     else render :edit
     end
   end
@@ -137,10 +137,26 @@ class ProductsController < ApplicationController
     redirect_to stocks_path
   end
 
+  def edit_price
+    @product = Product.find(params[:id])
+  end
+
+  def change_price
+    @product = Product.find(params[:id])
+    @product.update(price_params)
+    @product.save
+    redirect_to selection_path(@product.selection)
+    flash[:notice] = "Votre prix a bien été modifié."
+  end
+
   private
 
   def product_params
     params.require(:product).permit(:name, :brand, :size, :color, :genre, :price_cents, :selection_id)
+  end
+
+  def price_params
+    params.require(:product).permit(:price_cents)
   end
   # Ne pas oublier de remettre status par défault
 end
