@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   get 'furnishers', to: 'pages#fournisseurs'
   get 'stocks', to: 'pages#stocks'
   get 'comptabilite', to: 'pages#comptabilite'
+  get 'test', to: 'pages#test'
+  get 'pricer', to: 'pages#pricer'
   resources :fournisseurs do
     resources :paiements, only: [ :index, :show, :new, :create ]
   end
@@ -37,7 +39,8 @@ Rails.application.routes.draw do
     post 'products/:id/return', to: "products#return_status", as: "return_status"
   resources :paiements, only: [ :edit, :update, :destroy]
     post 'paiements/:id/settle', to: "paiements#settle_status", as: "settle_status"
-  get 'products/:id/research', to: "products#research", as: "product_research"
+
+  get 'selections/:id/csv', to: "selections#csv", as: "selection_csv"
 
   resources :brands
   resources :clothes

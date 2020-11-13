@@ -54,10 +54,11 @@ ActiveRecord::Schema.define(version: 2020_11_04_163844) do
     t.string "size"
     t.string "genre"
     t.string "category"
+    t.string "color"
     t.string "status", default: "à vendre"
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "EUR", null: false
-    t.bigint "selection_id", null: false
+    t.bigint "selection_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["selection_id"], name: "index_products_on_selection_id"

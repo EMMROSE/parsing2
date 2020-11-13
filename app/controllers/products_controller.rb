@@ -67,6 +67,28 @@ class ProductsController < ApplicationController
     else
       @product.category = "Chaussures/Chaussons"
     end
+    # début du pricer
+    # prices = {}
+    # Brand.all.each do |element|
+    #   prices[element.name] = Hash.new
+    #   Clothe.all.each do |element2|
+        sum = 0
+        moy = 0
+        var = 0
+       Product.where(brand: @product.brand, name: @product.name).each do |x|
+          var += 1
+          sum += x.price
+        end
+        if var > 0
+          moy = sum / var
+           @product.price = moy
+        else
+          @product.price = 0
+        end
+    # #   end
+    # # end
+    # @product.price = prices[@product.brand.to_sym][@product.name.to_sym]
+
     if @product.save
       redirect_to selection_path(@selection)
       flash[:notice] = "Votre produit a bien été enregistré."
@@ -118,7 +140,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :brand, :size, :genre, :price_cents, :selection_id)
+    params.require(:product).permit(:name, :brand, :size, :color, :genre, :price_cents, :selection_id)
   end
   # Ne pas oublier de remettre status par défault
 end

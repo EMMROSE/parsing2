@@ -6,9 +6,10 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.string :size
       t.string :genre
       t.string :category
+      t.string :color
       t.string :status, default: "à vendre"
       t.monetize :price
-      t.references :selection, null: false, foreign_key: true
+      t.references :selection, null: true, foreign_key: true
 
       t.timestamps
     end
