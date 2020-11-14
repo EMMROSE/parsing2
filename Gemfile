@@ -69,3 +69,5 @@ gem 'money-rails'
 # to generate PDF doc
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
+gem 'postmark-rails'

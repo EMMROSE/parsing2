@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     post 'paiements/:id/settle', to: "paiements#settle_status", as: "settle_status"
 
   get 'selections/:id/csv', to: "selections#csv", as: "selection_csv"
+  get 'selections/:id/mail', to: "selections#mail", as: "selection_mail"
 
   resources :brands
   resources :clothes

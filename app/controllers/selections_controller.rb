@@ -63,6 +63,11 @@ class SelectionsController < ApplicationController
     flash[:notice] = "le CSV a bien été enregistré."
   end
 
+  def mail
+    @selection = Selection.find(params[:id])
+    OrderMailer.information(contenu_pdf).deliver_now
+  end
+
   private
 
   def selection_params
