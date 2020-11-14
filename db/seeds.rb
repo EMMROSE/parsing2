@@ -38,6 +38,7 @@ puts '----------------'
 
 Product.destroy_all
 puts 'Create Products'
+# LES PRIX INDIQUES SONT EN TTC. PENSEZ A CHANGER CETTE BASE DE DONNEE ET TRAVAILLER EN HT
 @product1 = Product.new(brand: 'Jacadi', name: 'Manteau', price: 40.00)
 @product2 = Product.new(brand: 'Boutchou', name: 'Manteau', price: 16.00)
 @product3 = Product.new(brand: 'Jacadi', name: 'Combinaison', price: 19.00)
