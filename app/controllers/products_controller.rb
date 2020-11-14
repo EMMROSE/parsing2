@@ -64,8 +64,10 @@ class ProductsController < ApplicationController
       @product.category = "Pantalon/Leggin/Bloomer"
     elsif array9.include?(@product.name)
       @product.category = "Manteau/Blouson"
-    else
+    elsif array10.include?(@product.name)
       @product.category = "Chaussures/Chaussons"
+    else
+      @product.category = "Accessoires"
     end
     # début du pricer
     # prices = {}

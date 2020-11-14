@@ -18,19 +18,25 @@
       <td>Statut</td>
       <td>Modifier le prix</td>
       <td>Editer le produit</td>
+      <td>Supprimer le produit</td>
     </tr>
-    <% @selection.products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.brand %></td>
-        <td><%= product.category %></td>
-        <td><%= product.size %></td>
-        <td><%= product.genre %></td>
-        <td><%= product.price %>€</td>
-        <td><%= product.status %></td>
-        <td><%= link_to '€', edit_price_path(product), method: :post %></td>
-        <td><%= link_to 'edit',edit_product_path(product)%></td>
-      </tr>
-    <% end %>
+    <% if @selection.products.count > 0 %>
+      <% @selection.products.each do |product| %>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.brand %></td>
+          <td><%= product.category %></td>
+          <td><%= product.size %></td>
+          <td><%= product.genre %></td>
+          <td><%= product.price %>€</td>
+          <td><%= product.status %></td>
+          <td><%= link_to '€', edit_price_path(product), method: :post %></td>
+          <td><%= link_to 'edit',edit_product_path(product)%></td>
+          <td><%= link_to '-', product_path(product), method: :delete, data: {confirm: "Vous êtes sûre?"} %></td>
+        </tr>
+      <% end %>
+      <% else %>
+        <tr> Cette sélection ne contient pas de produits.</tr>
+      <% end %>
   </table>
 </div>
